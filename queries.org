@@ -1,0 +1,53 @@
+#+BEGIN_SRC graphql :url http://127.0.0.1:5000/graphql
+  {
+    allEmployees {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+  }
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+{
+  "data": {
+    "allEmployees": {
+      "edges": [
+        {
+          "node": {
+            "name": "Peter"
+          }
+        },
+        {
+          "node": {
+            "name": "Roy"
+          }
+        },
+        {
+          "node": {
+            "name": "Tracy"
+          }
+        },
+        {
+          "node": {
+            "name": "Peter"
+          }
+        },
+        {
+          "node": {
+            "name": "Roy"
+          }
+        },
+        {
+          "node": {
+            "name": "Tracy"
+          }
+        }
+      ]
+    }
+  }
+}
+#+end_example
