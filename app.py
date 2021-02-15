@@ -1,7 +1,11 @@
-from database import init_db
+#from database import init_db
+from fixtures import fixtures_data
 from flask import Flask
 from flask_graphql import GraphQLView
 from schema import schema
+from mongoengine import connect
+
+connect("recipies", host="mongo", alias="default")
 
 app = Flask(__name__)
 app.debug = True
@@ -12,5 +16,5 @@ app.add_url_rule(
 )
 
 if __name__ == '__main__':
-    init_db()
+    fixtures_data()
     app.run()

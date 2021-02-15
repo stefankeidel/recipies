@@ -1,3 +1,5 @@
 Flask
 Flask-GraphQL
 graphene-mongo
+gunicorn==20.0.4
+pytest

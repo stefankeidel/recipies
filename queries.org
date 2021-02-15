@@ -1,49 +1,39 @@
 #+BEGIN_SRC graphql :url http://127.0.0.1:5000/graphql
-  {
-    allEmployees {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-  }
+{
+               bikes(first: 2, type: "Gravel"){
+                   edges {
+                   node {
+                       name
+                       brand
+                       year
+                       size
+                       wheelSize
+                       type
+                       }
+                   }
+               }
+           }
 #+END_SRC
 
 #+RESULTS:
 #+begin_example
 {
   "data": {
-    "allEmployees": {
+    "bikes": {
       "edges": [
         {
           "node": {
-            "name": "Peter"
-          }
-        },
-        {
-          "node": {
-            "name": "Roy"
-          }
-        },
-        {
-          "node": {
-            "name": "Tracy"
-          }
-        },
-        {
-          "node": {
-            "name": "Peter"
-          }
-        },
-        {
-          "node": {
-            "name": "Roy"
-          }
-        },
-        {
-          "node": {
-            "name": "Tracy"
+            "name": "CAADX ULTEGRA",
+            "brand": "Cannondale",
+            "year": "2019",
+            "size": [
+              "46",
+              "51",
+              "54",
+              "58"
+            ],
+            "wheelSize": 28.0,
+            "type": "Gravel"
           }
         }
       ]

@@ -1,25 +1,19 @@
 import graphene
 from graphene.relay import Node
-from graphene_mongo import MongoengineConnectionField, MongoengineObjectType
-from models import Recipe as RecipeModel
-from models import Ingredient as IngredientModel
+from graphene_mongo.fields import MongoengineConnectionField
+from models import Recipe
+from object_types import RecipeType
+#from .mutations import CreateBikeMutation, UpdateBikeMutation, DeleteBikeMutation
 
 
-class Recipe(MongoengineObjectType):
-    class Meta:
-        model = RecipeModel
-        interfaces = (Node,)
-
-
-class Ingredient(MongoengineObjectType):
-    class Meta:
-        model = IngredientModel
-        interfaces = (Node,)
+# class Mutations(graphene.ObjectType):
+#     create_bike = CreateBikeMutation.Field()
+#     update_bike = UpdateBikeMutation.Field()
+#     delete_bike = DeleteBikeMutation.Field()
 
 
 class Query(graphene.ObjectType):
     node = Node.Field()
-    all_recipies = MongoengineConnectionField(Recipe)
+    recipies = MongoengineConnectionField(RecipeType)
 
-
-schema = graphene.Schema(query=Query, types=[Recipe, Ingredient])
+schema = graphene.Schema(query=Query, types=[RecipeType])

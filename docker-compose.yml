@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  web:
+    build: ./
+    command: gunicorn --bind 0.0.0.0:5000 app:app
+    ports:
+      - 5000:5000
+  mongo:
+    image: mongo:latest
+    depends_on:
+      - web
+    ports:
+      - 27017:27017
